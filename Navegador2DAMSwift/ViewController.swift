@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
+var direccion = ""
 
+class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     @IBOutlet weak var barraDeBusqueda: UISearchBar!
     @IBOutlet weak var webView: UIWebView!
     
@@ -57,10 +58,13 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
-    
+
+
+
     @IBAction func historial(_ sender: Any)
     {
-        
+        //direccion = barraDeBusqueda.text!
+        //performSegue(withIdentifier: "historial", sender: self)
     }
     
     
@@ -73,11 +77,12 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        //performSegue(withIdentifier: "historial", sender: self) //usar para tranferir datos entre ViewControllers
+
         
         webView.loadRequest(URLRequest(url: URL(string: "http://www.google.com")!))
         
-        
+
         
 
     }
