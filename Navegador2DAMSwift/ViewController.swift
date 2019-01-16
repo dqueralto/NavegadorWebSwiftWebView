@@ -49,6 +49,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
         }
     }
     
+    
     func webViewDidStartLoad(_ webView: UIWebView)
     {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
