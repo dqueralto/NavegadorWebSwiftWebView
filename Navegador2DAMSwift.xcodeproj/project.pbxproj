@@ -17,7 +17,7 @@
 		7F95352821EE706600DA5B2A /* iPhoneApp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F95352521EE706600DA5B2A /* iPhoneApp.jpg */; };
 		7F95352921EE706600DA5B2A /* iPhoneApp2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F95352621EE706600DA5B2A /* iPhoneApp2.jpg */; };
 		7F95352A21EE706600DA5B2A /* illidari.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F95352721EE706600DA5B2A /* illidari.jpg */; };
-		7F95353021EEABFC00DA5B2A /* SegundoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95352F21EEABFC00DA5B2A /* SegundoViewController.swift */; };
+		7F95353421EEBFE300DA5B2A /* SegundoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95353321EEBFE300DA5B2A /* SegundoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		7F95352521EE706600DA5B2A /* iPhoneApp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iPhoneApp.jpg; sourceTree = "<group>"; };
 		7F95352621EE706600DA5B2A /* iPhoneApp2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iPhoneApp2.jpg; sourceTree = "<group>"; };
 		7F95352721EE706600DA5B2A /* illidari.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = illidari.jpg; sourceTree = "<group>"; };
-		7F95352F21EEABFC00DA5B2A /* SegundoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SegundoViewController.swift; path = ../SegundoViewController.swift; sourceTree = "<group>"; };
+		7F95353321EEBFE300DA5B2A /* SegundoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegundoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 			children = (
 				7F9534F421ED256B00DA5B2A /* AppDelegate.swift */,
 				7F9534F621ED256B00DA5B2A /* ViewController.swift */,
-				7F95352F21EEABFC00DA5B2A /* SegundoViewController.swift */,
+				7F95353321EEBFE300DA5B2A /* SegundoViewController.swift */,
 				7F9534F821ED256B00DA5B2A /* Main.storyboard */,
 				7F9534FB21ED256C00DA5B2A /* Assets.xcassets */,
 				7F9534FD21ED256C00DA5B2A /* LaunchScreen.storyboard */,
@@ -281,7 +281,7 @@
 			files = (
 				7F9534F721ED256B00DA5B2A /* ViewController.swift in Sources */,
 				7F9534F521ED256B00DA5B2A /* AppDelegate.swift in Sources */,
-				7F95353021EEABFC00DA5B2A /* SegundoViewController.swift in Sources */,
+				7F95353421EEBFE300DA5B2A /* SegundoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -103,7 +103,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXW-GO-tHY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ri0-k3-0bx">
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -111,10 +111,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="qXW-GO-tHY" firstAttribute="bottom" secondItem="vTD-i1-E6H" secondAttribute="bottomMargin" id="c16-VE-3rD"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qXW-GO-tHY" secondAttribute="trailing" id="fIs-EL-1wQ"/>
-                                                <constraint firstItem="qXW-GO-tHY" firstAttribute="leading" secondItem="vTD-i1-E6H" secondAttribute="leadingMargin" id="gtf-9I-9Ai"/>
-                                                <constraint firstItem="qXW-GO-tHY" firstAttribute="top" secondItem="vTD-i1-E6H" secondAttribute="topMargin" id="yee-db-jXq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ri0-k3-0bx" secondAttribute="trailing" id="6eg-6v-YHG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ri0-k3-0bx" secondAttribute="bottom" id="Dns-fB-ieM"/>
+                                                <constraint firstItem="Ri0-k3-0bx" firstAttribute="leading" secondItem="vTD-i1-E6H" secondAttribute="leadingMargin" id="mQz-AF-Gt8"/>
+                                                <constraint firstItem="Ri0-k3-0bx" firstAttribute="top" secondItem="vTD-i1-E6H" secondAttribute="topMargin" id="omu-gy-p5A"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -126,7 +126,7 @@
                                 <items>
                                     <barButtonItem systemItem="reply" id="vxS-EG-WrE">
                                         <connections>
-                                            <action selector="salir:" destination="vcr-DU-vZx" id="rDw-4M-RNf"/>
+                                            <action selector="salir:" destination="vcr-DU-vZx" id="lnr-85-Hzu"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
