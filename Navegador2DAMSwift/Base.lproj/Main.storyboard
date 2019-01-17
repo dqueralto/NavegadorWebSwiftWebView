@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Dja-iK-G1m" userLabel="BarraDeBusqueda">
+                            <searchBar contentMode="redraw" text="https://developer.apple.com" translatesAutoresizingMaskIntoConstraints="NO" id="Dja-iK-G1m" userLabel="BarraDeBusqueda">
                                 <rect key="frame" x="0.0" y="51" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
