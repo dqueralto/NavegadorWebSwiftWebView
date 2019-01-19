@@ -96,29 +96,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SRJ-g6-VW1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Celdilla" id="SRJ-g6-VW1">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SRJ-g6-VW1" id="vTD-i1-E6H">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ri0-k3-0bx">
-                                                    <rect key="frame" x="20" y="11" width="374" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Ri0-k3-0bx" secondAttribute="trailing" id="6eg-6v-YHG"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Ri0-k3-0bx" secondAttribute="bottom" id="Dns-fB-ieM"/>
-                                                <constraint firstItem="Ri0-k3-0bx" firstAttribute="leading" secondItem="vTD-i1-E6H" secondAttribute="leadingMargin" id="mQz-AF-Gt8"/>
-                                                <constraint firstItem="Ri0-k3-0bx" firstAttribute="top" secondItem="vTD-i1-E6H" secondAttribute="topMargin" id="omu-gy-p5A"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vcr-DU-vZx" id="kAP-vH-Jji"/>
+                                    <outlet property="delegate" destination="vcr-DU-vZx" id="l7C-DA-731"/>
+                                </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pmb-RO-zhr">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
@@ -129,6 +119,9 @@
                                             <action selector="salir:" destination="vcr-DU-vZx" id="lnr-85-Hzu"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XwL-oh-sW2"/>
+                                    <barButtonItem systemItem="trash" id="CFG-ES-8XK"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="N9L-aS-G0k"/>
                                 </items>
                             </toolbar>
                         </subviews>
