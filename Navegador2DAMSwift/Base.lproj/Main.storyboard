@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="https://developer.apple.com" translatesAutoresizingMaskIntoConstraints="NO" id="Dja-iK-G1m" userLabel="BarraDeBusqueda">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Dja-iK-G1m" userLabel="BarraDeBusqueda">
                                 <rect key="frame" x="0.0" y="51" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -28,6 +28,9 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjT-jg-1bm">
                                 <rect key="frame" x="0.0" y="107" width="414" height="706"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VBz-Gk-wch"/>
+                                </connections>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpt-tm-Tu6">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
@@ -75,7 +78,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="avanzar" destination="lpg-mt-e7e" id="rsR-fI-PRZ"/>
                         <outlet property="barraDeBusqueda" destination="Dja-iK-G1m" id="kO4-1P-tTg"/>
+                        <outlet property="recargar" destination="FhY-70-JCE" id="rMe-FS-j6p"/>
+                        <outlet property="retroceder" destination="ltf-XM-tt4" id="omE-g0-EJN"/>
                         <outlet property="webView" destination="wjT-jg-1bm" id="up5-ZK-4WO"/>
                     </connections>
                 </viewController>
@@ -120,7 +126,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XwL-oh-sW2"/>
-                                    <barButtonItem systemItem="trash" id="CFG-ES-8XK"/>
+                                    <barButtonItem systemItem="trash" id="CFG-ES-8XK">
+                                        <connections>
+                                            <action selector="eliminar:" destination="vcr-DU-vZx" id="owG-H9-1yt"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="N9L-aS-G0k"/>
                                 </items>
                             </toolbar>
@@ -128,6 +138,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="v5h-P8-5An"/>
                     </view>
+                    <connections>
+                        <outlet property="eliminar" destination="CFG-ES-8XK" id="GBp-ye-HBr"/>
+                        <outlet property="histoTableView" destination="7kW-y6-Pb1" id="kbz-pe-Uhx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVc-sd-4mD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

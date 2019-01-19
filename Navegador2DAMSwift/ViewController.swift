@@ -7,13 +7,32 @@
 //
 
 import UIKit
-
+import SQLite3
 var direccion = ""
 
-class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
+class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate{
+    //VARIABLES PARA LA BASE DE DATOS Y LOS OBJEROS
+    var db: OpaquePointer?
+    var historial = [Histo]()
+    //COSAS QUE USAREMOS
     @IBOutlet weak var barraDeBusqueda: UISearchBar!
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var retroceder: UIBarButtonItem!
+    @IBOutlet weak var avanzar: UIBarButtonItem!
     
+    @IBOutlet weak var recargar: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        barraDeBusqueda.delegate = self
+        webView.delegate = self
+        webView.loadRequest(URLRequest(url: URL(string: "https://www.google.com")!))
+        crearBD()//CREAMOS O ABRIMOS(SI YA EXISTE) LA BASE DE DATOS
+    }
+    //---------------------------------------------------------------------------------------------------------------
+    //BOTONES
+    //---------------------------------------------------------------------------------------------------------------
+    //RETROCEDEMOS A LA PAGINA ANTERIOR
     @IBAction func atras(_ sender: Any)
     {
         if webView.canGoBack
@@ -37,15 +56,61 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
+        //ALMACENAMOS EL CONTENIDO DE LA BARRA DE BUSQUEDA
+        let barraBusqueda = barraDeBusqueda.text!
+        //CREAMOS CONSTANTES CON DIVERSA COSAS QUE USAREMOS PARA TRATAR LA/LAS URL/URLS
+        let com: String = ".com"
+        let es: String = ".es"
+        let net: String = ".net"
+        //let http: String = "http://"
+        let https: String = "https://"
+        let www: String = "www."
+        let google: String = "https://www.google.com/search?q="
+        //CONVERTIMOS LOS "ESPACIOS"EN LA BARRA DE BUSQUEDA POR "-" Y LA ALMACENAMOS PARA TRABAJAR CON ELLA
+        var barraBusquedafinal = barraBusqueda.replacingOccurrences(of: " ", with: "-", options: .literal, range: nil)
+        //QUITAMOS LA PRIORIDAD DE LA BARRA
         barraDeBusqueda.resignFirstResponder()
-        
-        if let url = URL(string: barraDeBusqueda.text!)
+        //PASAMOS A MINUSCULAS EL CONTENIDO DE LA VARIABLE DEFINITIVA(barraBusquedafinal)
+        barraBusquedafinal = barraBusquedafinal.lowercased()
+        //COMPROBAMOS SI EL CONTENIDO DE LA VARIABLE DEFINITIVA TIENE ".COM", ".ES", ".NET", ""
+        if !barraBusquedafinal.contains(com) && !barraBusquedafinal.contains(es) && !barraBusquedafinal.contains(net)
         {
-            webView.loadRequest(URLRequest(url: url))
+            //SI NO LOS TIENE LE AÑADIMOS LA URL DE BUSQUEDA POR DEFECTO DE GOOGLE
+            barraBusquedafinal = google + barraBusquedafinal
+            //Y LE DECIMOS QUE PASE NUESTRO STRING A FOMATO URL(ALMACENANDOLO EN UNA CONSTANTE) Y LO USAMOS PARA QUE SI NO SE PUDIERA PASAR NO HICIERA NADA
+            if let url = URL(string: barraBusquedafinal)
+            {
+                let myRequest = URLRequest(url: url)//HACEMOS LA SOLICITUD DE CARGA
+                webView.loadRequest(myRequest)//AQUI ES CUANDO LA CARGA
+            }
+            
         }
         else
         {
-            print("ERROR")
+            //COMPROBAMOS SI NUESTRA DIRECCION (CONTENIDA EN LA BARRA DE BUSQUEDA) POSEE "WWW."
+            if !barraBusquedafinal.contains(www)
+            {
+                barraBusquedafinal = www + barraBusquedafinal//SI NO LO POSEE SE LO AÑADIMOS
+            }
+            /*if !barraBusquedafinal.contains(http)
+             {
+             barraBusquedafinal = http + barraBusquedafinal
+             }
+             */
+            //COMPROBAMOS SI NUESTRA DIRECCION (CONTENIDA EN LA BARRA DE BUSQUEDA) POSEE  "HTTPS://"
+            if !barraBusquedafinal.contains(https)
+            {
+                barraBusquedafinal = https + barraBusquedafinal//SI NO LO TIENE SE LO AÑADIMOS
+            }
+            //Y LE DECIMOS QUE PASE NUESTRO STRING A FOMATO URL(ALMACENANDOLO EN UNA CONSTANTE) Y LO USAMOS PARA QUE SI NO SE PUDIERA PASAR NO HICIERA NADA
+            if let url = URL(string: barraBusquedafinal)
+            {
+                let myRequest = URLRequest(url: url)//HACEMOS LA SOLICITUD DE CARGA
+                webView.loadRequest(myRequest)//AQUI ES CUANDO LA CARGA
+            }
+            
+            
+            
         }
     }
     
@@ -53,20 +118,18 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     func webViewDidStartLoad(_ webView: UIWebView)
     {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        barraDeBusqueda.text = webView.request?.url?.absoluteString
+        insertar()
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView)
     {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        activarBotones()
     }
 
  
 
-    @IBAction func historial(_ sender: Any)
-    {
-        //direccion = barraDeBusqueda.text!
-        //performSegue(withIdentifier: "historial", sender: self)
-    }
     
     
     
@@ -76,7 +139,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     
     func activarBotones()//HABILITAMOS O DESHABILITAMOS LOS BOTONES DE AVANCE O RETROCESO SEGÚN SE PUEDA
     {
-        if webKitView.canGoForward
+        if webView.canGoForward
         {
             avanzar.isEnabled = true
         }
@@ -84,7 +147,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
         {
             avanzar.isEnabled = false
         }
-        if webKitView.canGoBack
+        if webView.canGoBack
         {
             retroceder.isEnabled = true
         }
@@ -97,10 +160,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIWebViewDelegate {
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        webView.loadRequest(URLRequest(url: URL(string: "http://www.google.com")!))
-    }
+
     //---------------------------------------------------------------------------------------------------------------
     //GESTION DE BASE DE DATOS
     //---------------------------------------------------------------------------------------------------------------

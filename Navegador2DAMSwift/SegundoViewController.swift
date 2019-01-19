@@ -15,6 +15,7 @@ class SegundoViewController: UIViewController, UITableViewDelegate,UITableViewDa
     var historial = [Histo]()
     var histo: [String] = []
     
+    @IBOutlet weak var eliminar: UIBarButtonItem!
     
     
     @IBOutlet weak var histoTableView: UITableView!
