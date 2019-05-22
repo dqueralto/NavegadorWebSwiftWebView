@@ -213,13 +213,16 @@
 				TargetAttributes = {
 					7F9534F021ED256B00DA5B2A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					7F95350421ED256C00DA5B2A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 7F9534F021ED256B00DA5B2A;
 					};
 					7F95350F21ED256C00DA5B2A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 7F9534F021ED256B00DA5B2A;
 					};
 				};
@@ -465,7 +468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dqp.Navegador2DAMSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -483,7 +486,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dqp.Navegador2DAMSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -503,7 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dqp.Navegador2DAMSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navegador2DAMSwift.app/Navegador2DAMSwift";
 			};
@@ -524,7 +527,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dqp.Navegador2DAMSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navegador2DAMSwift.app/Navegador2DAMSwift";
 			};
@@ -544,7 +547,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dqp.Navegador2DAMSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Navegador2DAMSwift;
 			};
@@ -564,7 +567,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dqp.Navegador2DAMSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Navegador2DAMSwift;
 			};
